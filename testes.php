@@ -2,9 +2,11 @@
 
 require_once('src/model/Usuario.php');
 require_once('src/model/Objeto.php');
+require_once('src/model/Ensino.php');
 
 require_once('src/dao/UsuarioDAO.php');
 require_once('src/dao/ObjetoDAO.php');
+require_once('src/dao/EnsinoDAO.php');
 
 /**
  * Teste CRUD Usuário
@@ -56,4 +58,21 @@ $objetoDAO = new ObjetoDAO();
 
 //$resposta = $objetoDAO->editar($objeto);
 
-print_r($resposta);
+//print_r($resposta);
+
+$ensino = new Ensino();
+$ensino->setId(1);
+$ensino->setDescricao("Ensino Fundamental I");
+$ensino->setTipo(2);
+
+$ensinoDAO = new EnsinoDAO();
+
+//$resposta = $ensinoDAO->inserir($ensino);
+
+//$resposta = $ensinoDAO->listarTodos($ensino);
+
+//$resposta = $ensinoDAO->listarPorId(1);
+
+//$resposta = $ensinoDAO->editar($ensino);
+
+//print_r($resposta);
