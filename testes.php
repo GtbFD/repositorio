@@ -1,6 +1,6 @@
 <?php
 
-/*require_once('src/model/Usuario.php');
+require_once('src/model/Usuario.php');
 require_once('src/model/Objeto.php');
 require_once('src/model/Ensino.php');
 require_once('src/model/ObjetoEnsino.php');
@@ -8,7 +8,7 @@ require_once('src/model/ObjetoEnsino.php');
 require_once('src/dao/UsuarioDAO.php');
 require_once('src/dao/ObjetoDAO.php');
 require_once('src/dao/EnsinoDAO.php');
-require_once('src/dao/ObjetoEnsinoDAO.php');*/
+require_once('src/dao/ObjetoEnsinoDAO.php');
 
 /**
  * Teste CRUD Usuário
@@ -39,28 +39,36 @@ print_r($resposta);*/
  * Teste CRUD Objeto
  */
 
-/*$objeto = new Objeto();
-$objeto->setId(1);
-$objeto->setTitulo("Teste [Editado]");
-$objeto->setDescricao("Objeto de teste");
-$objeto->setIdUsuario(1);
-$objeto->setDataPostagem(date('Y-m-d'));
-$objeto->setAssunto("Assunto teste");
-$objeto->setFormato("Word");
-$objeto->setLinguagem("Brasileira");
-$objeto->setUrl("http:teste.com/objetos/objeto_teste.word");
+?>
+<!-- O tipo de encoding de dados, enctype, DEVE ser especificado abaixo -->
+<!--<form action="testes.php" method="POST" enctype="multipart/form-data">
+    Enviar esse arquivo: <input name="userfile" type="file"/>
+    <input name="enviar_arquivo" type="submit" value="Enviar arquivo" />
+</form>-->
+<?php
+/*if(isset($_POST['enviar_arquivo']))
+{
+    $objeto = new Objeto();
+    $objeto->setId(1);
+    $objeto->setTitulo("Teste [Editado]");
+    $objeto->setDescricao("Objeto de teste");
+    $objeto->setIdUsuario(1);
+    $objeto->setDataPostagem(date('Y-m-d'));
+    $objeto->setAssunto("Assunto teste");
+    $objeto->setLinguagem("Brasileira");
 
-$objetoDAO = new ObjetoDAO();
+    $objetoDAO = new ObjetoDAO();
 
-$resposta = $objetoDAO->inserir($objeto);
+    $resposta = $objetoDAO->inserir($objeto);
 
-$resposta = $objetoDAO->listarTodos();
+    $resposta = $objetoDAO->listarTodos();
 
-$resposta = $objetoDAO->listarPorId(1);
+    $resposta = $objetoDAO->listarPorId(1);
 
-$resposta = $objetoDAO->editar($objeto);
+    $resposta = $objetoDAO->editar($objeto);*/
 
-print_r($resposta);*/
+    //print_r($resposta);
+//}
 
 /**
  * Teste CRUD Ensino

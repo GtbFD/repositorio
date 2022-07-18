@@ -2,6 +2,7 @@
 
 require_once('src/util/Conexao.php');
 require_once('src/model/Objeto.php');
+require_once('src/util/Upload.php');
 
 class ObjetoDAO
 {
@@ -18,6 +19,13 @@ class ObjetoDAO
         $query = "INSERT INTO objetos (titulo, descricao, id_usuario, data_postagem, 
             assunto, formato, linguagem, url) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conexao->prepare($query);
+
+        $upload = new Upload();
+        $dados = $upload->enviarArquivo();
+
+        $objeto->setFormato($dados['formato']);
+        $objeto->setUrl($dados['url']);
+
         $resposta = $stmt->execute(array($objeto->getTitulo(), $objeto->getDescricao(), 
                 $objeto->getIdUsuario(), $objeto->getDataPostagem(), $objeto->getAssunto(), 
                 $objeto->getFormato(), $objeto->getLinguagem(), $objeto->getUrl()));
