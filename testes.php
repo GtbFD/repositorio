@@ -48,27 +48,35 @@ print_r($resposta);*/
 <?php
 /*if(isset($_POST['enviar_arquivo']))
 {
-    $objeto = new Objeto();
-    $objeto->setId(1);
-    $objeto->setTitulo("Teste [Editado]");
-    $objeto->setDescricao("Objeto de teste");
-    $objeto->setIdUsuario(1);
-    $objeto->setDataPostagem(date('Y-m-d'));
-    $objeto->setAssunto("Assunto teste");
-    $objeto->setLinguagem("Brasileira");
+$objeto = new Objeto();
+$objeto->setId(1);
+$objeto->setTitulo("Teste [Editado]");
+$objeto->setDescricao("Objeto de teste");
+$objeto->setIdUsuario(1);
+$objeto->setDataPostagem(date('Y-m-d'));
+$objeto->setAssunto("Assunto teste");
+$objeto->setLinguagem("Brasileira");
 
-    $objetoDAO = new ObjetoDAO();
+$objetoDAO = new ObjetoDAO();
 
-    $resposta = $objetoDAO->inserir($objeto);
+$resposta = $objetoDAO->inserir($objeto);
 
-    $resposta = $objetoDAO->listarTodos();
+$resposta = $objetoDAO->listarTodos();
 
-    $resposta = $objetoDAO->listarPorId(1);
+$resposta = $objetoDAO->listarPorId(1);
 
-    $resposta = $objetoDAO->editar($objeto);*/
+$resposta = $objetoDAO->editar($objeto);
 
-    //print_r($resposta);
-//}
+$resposta = $objetoDAO->quantidadeObjetosAtivos();
+
+$resposta = $objetoDAO->quantidadeObjetosInativos();
+
+$resposta = $objetoDAO->excluir(1);
+
+$resposta = $objetoDAO->recuperarExclusao(1);
+
+print_r($resposta);
+}*/
 
 /**
  * Teste CRUD Ensino
@@ -88,6 +96,10 @@ $resposta = $ensinoDAO->listarTodos($ensino);
 $resposta = $ensinoDAO->listarPorId(1);
 
 $resposta = $ensinoDAO->editar($ensino);
+
+$resposta = $ensinoDAO->excluir(1);
+
+$resposta = $ensinoDAO->recuperarExclusao(1);
 
 print_r($resposta);*/
 

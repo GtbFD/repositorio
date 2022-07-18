@@ -52,11 +52,21 @@ class EnsinoDAO
 
     public function excluir($id)
     {
-        /*$query = "UPDATE usuarios SET usuarios WHERE id = ?";
+        $query = "UPDATE ensinos SET ativo = 0 WHERE id = ?";
         $stmt = $this->conexao->prepare($query);
         $stmt->execute(array($id));
-        $resposta = $stmt->fetchAll();
+        $resposta = $stmt->fetch();
 
-        return $resposta;*/
+        return $resposta;
+    }
+
+    public function recuperarExclusao($id)
+    {
+        $query = "UPDATE ensinos SET ativo = 1 WHERE id = ?";
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute(array($id));
+        $resposta = $stmt->fetch();
+
+        return $resposta;
     }
 }

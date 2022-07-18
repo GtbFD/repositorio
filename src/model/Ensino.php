@@ -5,6 +5,7 @@ class Ensino
     private $id;
     private $descricao;
     private $tipo;
+    private $ativo;
 
     /**
      * Get the value of id
@@ -62,6 +63,26 @@ class Ensino
     public function setTipo($tipo)
     {
         $this->tipo = $tipo;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ativo
+     */ 
+    public function getAtivo()
+    {
+        return $this->ativo;
+    }
+
+    /**
+     * Set the value of ativo
+     *
+     * @return  self
+     */ 
+    public function setAtivo($ativo)
+    {
+        $this->ativo = $ativo;
 
         return $this;
     }

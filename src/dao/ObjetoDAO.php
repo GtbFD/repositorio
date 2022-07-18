@@ -42,6 +42,26 @@ class ObjetoDAO
         return $resposta; 
     }
 
+    public function quantidadeObjetosAtivos()
+    {
+        $query = "SELECT COUNT(id) FROM objetos WHERE ativo = 1";
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute();
+        $resposta = $stmt->fetch();
+
+        return $resposta;
+    }
+
+    public function quantidadeObjetosInativos()
+    {
+        $query = "SELECT COUNT(id) FROM objetos WHERE ativo = 0";
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute();
+        $resposta = $stmt->fetch();
+
+        return $resposta;
+    }
+
     public function listarPorId($id)
     {
         $query = "SELECT * FROM objetos WHERE id = ?";
@@ -65,11 +85,21 @@ class ObjetoDAO
 
     public function excluir($id)
     {
-        /*$query = "UPDATE usuarios SET usuarios WHERE id = ?";
+        $query = "UPDATE objetos SET ativo = 0 WHERE id = ?";
         $stmt = $this->conexao->prepare($query);
         $stmt->execute(array($id));
-        $resposta = $stmt->fetchAll();
+        $resposta = $stmt->fetch();
 
-        return $resposta;*/
+        return $resposta;
+    }
+
+    public function recuperarExclusao($id)
+    {
+        $query = "UPDATE objetos SET ativo = 1 WHERE id = ?";
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute(array($id));
+        $resposta = $stmt->fetch();
+
+        return $resposta;
     }
 }

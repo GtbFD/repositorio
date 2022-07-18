@@ -11,7 +11,7 @@ class Objeto
     private $formato;
     private $linguagem;
     private $url;
-
+    private $ativo;
     
 
     /**
@@ -190,6 +190,26 @@ class Objeto
     public function setUrl($url)
     {
         $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ativo
+     */ 
+    public function getAtivo()
+    {
+        return $this->ativo;
+    }
+
+    /**
+     * Set the value of ativo
+     *
+     * @return  self
+     */ 
+    public function setAtivo($ativo)
+    {
+        $this->ativo = $ativo;
 
         return $this;
     }

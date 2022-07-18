@@ -55,13 +55,23 @@ class UsuarioDAO
         return $resposta;
     }
 
-    public function excluir($id)
+    public function bloquear($id)
     {
-        /*$query = "UPDATE usuarios SET usuarios WHERE id = ?";
+        $query = "UPDATE usuarios SET bloqueado = 1 WHERE id = ?";
         $stmt = $this->conexao->prepare($query);
         $stmt->execute(array($id));
-        $resposta = $stmt->fetchAll();
+        $resposta = $stmt->fetch();
 
-        return $resposta;*/
+        return $resposta;
+    }
+
+    public function desbloquear($id)
+    {
+        $query = "UPDATE usuarios SET bloqueado = 0 WHERE id = ?";
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute(array($id));
+        $resposta = $stmt->fetch();
+
+        return $resposta;
     }
 }
