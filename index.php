@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php session_start() ?>
+
+<?php
+    require_once('src/model/Usuario.php');
+    require_once('src/util/Login.php');
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,13 +53,40 @@
         <div class="login">
             <h2 style="margin-left: 30px;">Faça seu login!</h2>
             <div class="formulario-login">
-                <form action="" method="post">
+                <form action="index.php" method="post">
                     <input name="email" placeholder="Email"><br>
                     <input name="senha" type="password" placeholder="Senha"><br><br>
                     <a href="" style="text-decoration: none; color: black;">Esqueci minha senha</a><br>
                     <center><input style="border:1px solid #CCC;border-radius: 5px; padding: 10px;margin-top: 15px; width: 150px;" 
                     name="entrar" type="submit" value="Entrar"></center>
                     <b><center><br><?php ?><center></b>
+                    <?php
+
+                        $usuario = new Usuario();
+
+                        $email = filter_input(INPUT_POST, 'email');
+                        $senha = filter_input(INPUT_POST, 'senha');
+                        
+                        $usuario->setEmail($email);
+                        $usuario->setSenha($senha);
+
+                        $login = new Login();
+
+                        if(isset($_POST['entrar']))
+                        {
+                            $resposta = $login->entrar($usuario);
+
+                            if($resposta['status'])
+                            {
+                                $_SESSION['usuario'] = $resposta['usuario'];
+                                header('Location: dashboard.php');
+                            }else{
+                                ?>
+                                    <b><center><br>Email e/ou senha incorretos!<center></b>
+                                <?php
+                            }
+                        }
+                    ?>
                 </form>
             </div>
         </div>

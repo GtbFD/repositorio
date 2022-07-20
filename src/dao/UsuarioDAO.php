@@ -45,6 +45,16 @@ class UsuarioDAO
         return $resposta; 
     }
 
+    public function login(Usuario $usuario)
+    {
+        $query = "SELECT * FROM usuarios WHERE email = ? and senha = ?";
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute(array($usuario->getEmail(), $usuario->getSenha()));
+        $resposta = $stmt->fetch();
+
+        return $resposta;
+    }
+
     public function editar(Usuario $usuario)
     {
         $query = "UPDATE usuarios SET nome = ?, sobrenome = ?, email = ?, senha = ?, bloqueado = ?, data_criacao = ? WHERE id = ?";
