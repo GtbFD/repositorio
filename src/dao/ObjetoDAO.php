@@ -72,6 +72,22 @@ class ObjetoDAO
         return $resposta; 
     }
 
+    public function listarPorData()
+    {
+        $query = "SELECT o.id, o.descricao, o.id_usuario, o.data_postagem, o.assunto, o.formato, o.linguagem, o.url, o.ativo, e.id, e.descricao, e.tipo 
+                  FROM objetos AS o 
+                  INNER JOIN objeto_ensino AS oe 
+                    ON o.id = oe.id_objeto 
+                  INNER JOIN ensinos AS e 
+                    ON oe.id_ensino = e.id 
+                  ORDER BY data_postagem DESC";
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute();
+        $resposta = $stmt->fetchAll();
+
+        return $resposta;
+    }
+
     public function editar(Objeto $objeto)
     {
         $query = "UPDATE objetos SET titulo = ?, descricao = ?, assunto = ?, formato = ?,
