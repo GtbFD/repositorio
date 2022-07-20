@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root
+{
+    --cor-background: #f0f2f5;
+    --cor-secundaria: #ffffff;
+    --cor-bordas: #f7f8f9;
+    --shadow: 2px 2px 5px #CCC;
+}
+
+html, body
+{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--cor-background);
+}
+
+.container
+{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+        "barra-nav-top barra-nav-top barra-nav-top"
+        "area-pesquisa area-pesquisa area-login"
+        "area-novidades area-novidades .";
+}
+
+.barra-nav-top
+{
+    border: 1px solid --cor-bordas;
+    background-color: var(--cor-secundaria);
+    display: grid;
+    grid-area: barra-nav-top;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+        "logo . area-links";
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+.area-links
+{
+    display: grid;
+    justify-content: center;
+    grid-area: area-links;
+    margin-left: -50px;
+}
+
+.logo
+{
+    display: grid;
+    grid-area: logo;
+    padding: 15px;
+    margin-left: 50px;
+    vertical-align: middle;
+}
+
+.logo > img
+{
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+}
+
+.area-links > ul, li
+{
+    text-decoration: none;
+    list-style-type: none;
+    display: inline-flex;
+    margin-left: 20px;
+    justify-content: space-around;
+    margin-top: 19px;
+    vertical-align: middle;
+}
+
+.area-pesquisa
+{
+    border: var(--cor-bordas);
+    background-color: var(--cor-secundaria);
+    grid-area: area-pesquisa;
+    padding: 20px;
+    margin-left: 50px;
+    margin-top: 30px;
+    margin-right: 50px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.titulo-principal-pesquisa
+{
+    font-size: 30px;
+}
+
+.input-pesquisa
+{
+    width: 80%;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.login
+{
+    background-color: var(--cor-secundaria);
+    box-shadow: var(--shadow);
+    margin-top: 30px;
+    max-width: 400px;
+    padding: 20px;
+    margin-left: -10px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.formulario-login
+{
+    /*border: 1px solid var(--cor-bordas);*/
+    background-color: var(--cor-secundaria);
+    padding: 10px;
+    max-width: 400px;
+    border-radius: 10px;
+    display: grid;
+    justify-content: center;
+}
+
+.formulario-login > form > input
+{
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 10px;
+    width: 250px;
+    border:1px solid #CCC;
+}
+
+.botao-pesquisa
+{
+    padding: 12px;
+    border-radius: 5px;
+    border:1px solid #CCC;
+}
+
+.area-novidades
+{
+    grid-area: area-novidades;
+    margin-left: 50px;
+    padding: 20px;
+}
+
+ul, li > a
+{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
