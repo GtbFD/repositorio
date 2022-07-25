@@ -140,6 +140,8 @@ html, body
 
 .area-novidades
 {
+    display: grid;
+    grid-template-areas: "objeto";
     grid-area: area-novidades;
     margin-left: 50px;
     padding: 20px;
@@ -150,4 +152,54 @@ ul, li > a
     text-decoration: none;
     color: black;
     font-weight: bold;
+}
+
+.objeto
+{
+    grid-template: objeto;
+    display: grid;
+    background-color: var(--cor-secundaria);
+    border: 1px solid #CCC;
+    grid-template-columns: 120px 1fr 1fr;
+    grid-template-areas: 
+        "img_objeto titulo_objeto ."
+        "img_objeto descricao_objeto descricao_objeto";
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+    margin-left: -15px;
+}
+
+.titulo_objeto
+{
+    grid-area: titulo_objeto;
+    /*border: 1px solid #CCC;*/
+    margin-left: 10px;
+}
+
+.titulo_objeto > span
+{
+    font-size: 20px;
+}
+
+.descricao_objeto
+{
+    grid-area: descricao_objeto;
+    /*border: 1px solid #CCC;*/
+    margin-left: 10px;
+    margin-top: -30px;
+}
+
+.descricao_objeto > span
+{
+    font-size: 15px;
+}
+
+.img_objeto
+{
+    grid-area: img_objeto;
+    border: 1px solid #CCC;
+    width: 120px;
+    height: 120px;
 }

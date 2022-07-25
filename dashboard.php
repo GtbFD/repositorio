@@ -21,7 +21,7 @@
                     <li><a href="">Início</a></li>
                     <li><a href="">Submeter OA's</a></li>
                     <li><a href="">Meus OA's</a></li>
-                    <li><a href="">Sair</a></li>
+                    <li><a href="logout.php">Sair</a></li>
                 </ul>
             </div>
 

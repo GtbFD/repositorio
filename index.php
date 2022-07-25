@@ -6,6 +6,8 @@
 <?php
     require_once('src/model/Usuario.php');
     require_once('src/util/Login.php');
+
+    require_once('src/dao/ObjetoDAO.php');
 ?>
 
 <head>
@@ -95,7 +97,27 @@
             <h2>Objetos de aprendizagem recentes!</h2>
             
             <div class="novidade">
-                Que triste :( não temos nada para mostrar ainda!
+                
+                <?php
+                    $objetoDAO = new ObjetoDAO();
+
+                    $objetos = $objetoDAO->listarPorData();
+
+                    foreach($objetos as $objeto):
+                ?>
+                    <div class="objeto">
+                        <div class="titulo_objeto">
+                            <span><?= $objeto[1] ?></span>
+                        </div>
+                        <div class="descricao_objeto">
+                            <span><?= $objeto[2] ?></span>
+                        </div>
+                        <div class="img_objeto">
+                            <img src="">
+                        </div>
+                    </div>
+                <!--Que triste :( não temos nada para mostrar ainda!-->
+                <?php endforeach; ?>
             </div>
         </div>
     </div>

@@ -74,13 +74,14 @@ class ObjetoDAO
 
     public function listarPorData()
     {
-        $query = "SELECT o.id, o.descricao, o.id_usuario, o.data_postagem, o.assunto, o.formato, o.linguagem, o.url, o.ativo, e.id, e.descricao, e.tipo 
+        $query = "SELECT o.id, o.titulo, o.descricao, o.id_usuario, o.data_postagem, o.assunto, o.formato, o.linguagem, o.url, o.ativo, e.id, e.descricao, e.tipo 
                   FROM objetos AS o 
                   INNER JOIN objeto_ensino AS oe 
                     ON o.id = oe.id_objeto 
                   INNER JOIN ensinos AS e 
                     ON oe.id_ensino = e.id 
-                  ORDER BY data_postagem DESC";
+                  ORDER BY data_postagem DESC
+                  LIMIT 5";
         $stmt = $this->conexao->prepare($query);
         $stmt->execute();
         $resposta = $stmt->fetchAll();
