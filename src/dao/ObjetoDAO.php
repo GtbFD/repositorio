@@ -72,7 +72,7 @@ class ObjetoDAO
         return $resposta; 
     }
 
-    public function listarPorData()
+    public function listarPorData($limite)
     {
         $query = "SELECT o.id, o.titulo, o.descricao, o.id_usuario, 
                   o.data_postagem, o.assunto, o.formato, o.linguagem, 
@@ -85,9 +85,30 @@ class ObjetoDAO
                   INNER JOIN usuarios AS u
                     ON o.id_usuario = u.id 
                   ORDER BY data_postagem DESC
-                  LIMIT 5";
+                  LIMIT ".$limite;
         $stmt = $this->conexao->prepare($query);
         $stmt->execute();
+        $resposta = $stmt->fetchAll();
+
+        return $resposta;
+    }
+
+    public function listarPorUsuarioId($id)
+    {
+        $query = "SELECT o.id, o.titulo, o.descricao, o.id_usuario, 
+                  o.data_postagem, o.assunto, o.formato, o.linguagem, 
+                  o.url, o.ativo, e.id, e.descricao, e.tipo, u.nome, u.sobrenome 
+                  FROM objetos AS o 
+                  INNER JOIN objeto_ensino AS oe 
+                    ON o.id = oe.id_objeto 
+                  INNER JOIN ensinos AS e 
+                    ON oe.id_ensino = e.id
+                  INNER JOIN usuarios AS u
+                    ON o.id_usuario = u.id 
+                  ORDER BY data_postagem DESC
+                  WHERE u.id = ?";
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute(array($id));
         $resposta = $stmt->fetchAll();
 
         return $resposta;

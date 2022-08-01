@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php session_start() ?>
+<?php session_start(); ?>
 
 <?php
     require_once('src/model/Usuario.php');
@@ -101,7 +101,7 @@
                 <?php
                     $objetoDAO = new ObjetoDAO();
 
-                    $objetos = $objetoDAO->listarPorData();
+                    $objetos = $objetoDAO->listarPorData(5);
 
                     foreach($objetos as $objeto):
                 ?>

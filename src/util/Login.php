@@ -16,7 +16,7 @@ class Login
         {
             return array(
                 'status' => true,
-                'usuario' => $usuarioAutorizado
+                'usuario' => $usuarioAutorizado->login($usuario)
             );
         }
         else{
