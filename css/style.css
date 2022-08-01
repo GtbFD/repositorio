@@ -163,8 +163,9 @@ ul, li > a
     grid-template-columns: 120px 1fr 1fr;
     grid-template-areas: 
         "img_objeto titulo_objeto ."
-        "img_objeto descricao_objeto descricao_objeto";
-    padding: 10px;
+        "img_objeto descricao_objeto descricao_objeto"
+        "img_objeto info_objeto info_objeto";
+    padding: 15px;
     margin-top: 5px;
     border-radius: 5px;
     box-shadow: var(--shadow);
@@ -181,6 +182,7 @@ ul, li > a
 .titulo_objeto > span
 {
     font-size: 20px;
+    font-weight: bold;
 }
 
 .descricao_objeto
@@ -188,7 +190,7 @@ ul, li > a
     grid-area: descricao_objeto;
     /*border: 1px solid #CCC;*/
     margin-left: 10px;
-    margin-top: -30px;
+    text-align: justify;
 }
 
 .descricao_objeto > span
@@ -202,4 +204,23 @@ ul, li > a
     border: 1px solid #CCC;
     width: 120px;
     height: 120px;
+}
+
+.info_objeto
+{
+    grid-area: info_objeto;
+    margin-left: 10px;
+    margin-top: 30px;
+}
+
+.info_objeto > span
+{
+    font-size: 11px;
+}
+
+.info_objeto > span > a
+{
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
 }

@@ -115,6 +115,10 @@
                         <div class="img_objeto">
                             <img src="">
                         </div>
+                        <div class="info_objeto">
+                            <span>Enviado por <?= $objeto[13].' '.$objeto[14] ?></span> -
+                            <span><a href="<?= $objeto[8] ?>">Fazer download</a></span>
+                        </div>
                     </div>
                 <!--Que triste :( não temos nada para mostrar ainda!-->
                 <?php endforeach; ?>
