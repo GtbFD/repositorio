@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-    session_start();
+require_once('src/dao/ObjetoDAO.php');
 
-    if(!(isset($_SESSION['usuario']))){header('Location: index.php');}
+session_start();
+
+if (!(isset($_SESSION['usuario']))) {
+    header('Location: index.php');
+}
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,6 +36,10 @@
 
         </div>
 
+        <div class="boas-vindas">
+            <h2>Olá <?= $_SESSION['usuario'][1] ?>! </h2>
+        </div>
+
         <div class="area-pesquisa">
             <span class="titulo-principal-pesquisa">Pesquise aqui!</span><br>
             <span class="titulo-secundario-pesquisa">Pesquise aqui seu objeto de aprendizagem!</span><br>
@@ -46,7 +55,39 @@
                 Pesquisa avançada em breve
             </div>
         </div>
+        <div class="area-novidades">
 
+            <div class="novidade">
+                <h2>Meus objetos publicados</h2>
+            </div>
+            <?php
+            $objetoDAO = new ObjetoDAO();
+
+            $objetos = $objetoDAO->listarPorUsuarioId($_SESSION['usuario'][0]);
+
+            if (empty($objetos)) {
+                print("Ainda não existe um objeto publicado por você :(");
+            } else {
+                foreach ($objetos as $objeto) :
+            ?>
+                    <div class="objeto">
+                        <div class="titulo_objeto">
+                            <span><?= $objeto[1] ?></span>
+                        </div>
+                        <div class="descricao_objeto">
+                            <span><?= $objeto[2] ?></span>
+                        </div>
+                        <div class="img_objeto">
+                            <img src="">
+                        </div>
+                        <div class="info_objeto">
+                            <span>Enviado por <?= $objeto[13] . ' ' . $objeto[14] ?></span> -
+                            <span><a href="<?= $objeto[8] ?>">Fazer download</a></span>
+                        </div>
+                    </div>
+            <?php endforeach;
+            } ?>
+        </div>
     </div>
 </body>
 

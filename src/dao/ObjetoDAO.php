@@ -105,8 +105,8 @@ class ObjetoDAO
                     ON oe.id_ensino = e.id
                   INNER JOIN usuarios AS u
                     ON o.id_usuario = u.id 
-                  ORDER BY data_postagem DESC
-                  WHERE u.id = ?";
+                  WHERE u.id = ?
+                  ORDER BY data_postagem DESC";
         $stmt = $this->conexao->prepare($query);
         $stmt->execute(array($id));
         $resposta = $stmt->fetchAll();

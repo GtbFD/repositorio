@@ -22,8 +22,9 @@ html, body
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: 
         "barra-nav-top barra-nav-top barra-nav-top"
+        "boas-vindas boas-vindas boas-vindas"
         "area-pesquisa area-pesquisa area-pesquisa"
-        ". . .";
+        "area-novidades area-novidades .";
 }
 
 .barra-nav-top
@@ -142,6 +143,7 @@ html, body
     grid-area: area-novidades;
     margin-left: 50px;
     padding: 20px;
+    display: grid;
 }
 
 ul, li > a
@@ -149,4 +151,83 @@ ul, li > a
     text-decoration: none;
     color: black;
     font-weight: bold;
+}
+
+.boas-vindas
+{
+    display: grid;
+    grid-area: boas-vindas;
+    margin-left: 55px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.objeto
+{
+    grid-template: objeto;
+    display: grid;
+    background-color: var(--cor-secundaria);
+    border: 1px solid #CCC;
+    grid-template-columns: 120px 1fr 1fr;
+    grid-template-areas: 
+        "img_objeto titulo_objeto ."
+        "img_objeto descricao_objeto descricao_objeto"
+        "img_objeto info_objeto info_objeto";
+    padding: 15px;
+    margin-top: 5px;
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+    margin-left: -15px;
+}
+.titulo_objeto
+{
+    grid-area: titulo_objeto;
+    /*border: 1px solid #CCC;*/
+    margin-left: 10px;
+}
+
+.titulo_objeto > span
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.descricao_objeto
+{
+    grid-area: descricao_objeto;
+    /*border: 1px solid #CCC;*/
+    margin-left: 10px;
+    text-align: justify;
+}
+
+.descricao_objeto > span
+{
+    font-size: 15px;
+}
+
+.img_objeto
+{
+    grid-area: img_objeto;
+    border: 1px solid #CCC;
+    width: 120px;
+    height: 120px;
+}
+
+.info_objeto
+{
+    grid-area: info_objeto;
+    margin-left: 10px;
+    margin-top: 30px;
+}
+
+.info_objeto > span
+{
+    font-size: 11px;
+}
+
+.info_objeto > span > a
+{
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
 }
