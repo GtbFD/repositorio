@@ -22,14 +22,14 @@
     <div class="container">
         <div class="barra-nav-top">
             <div class="logo">
-                <img style="" src="./images/logo-livro.png"><span style="margin-left: -10px;font-weight: bold">RepoEdu</span>
+                <img src="./images/logo-livro.png"><span style="margin-left: -10px;font-weight: bold">RepoEdu</span>
             </div>
 
             <div class="area-links">
                 <ul>
-                    <li><a href="">Início</a></li>
+                    <li><a href="index.php">Início</a></li>
                     <li><a href="">Submissão</a></li>
-                    <li><a href="">Registro</a></li>
+                    <li><a href="cadastro.php">Cadastro</a></li>
                     <li><a href="">Suporte</a></li>
                     <li><a href="">Contato</a></li>
                 </ul>

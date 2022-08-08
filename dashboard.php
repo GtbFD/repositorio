@@ -22,7 +22,7 @@ if (!(isset($_SESSION['usuario']))) {
     <div class="container-dash">
         <div class="barra-nav-top">
             <div class="logo">
-                <img style="" src="./images/logo-livro.png"><span style="margin-left: -10px;font-weight: bold">RepoEdu</span>
+                <img src="./images/logo-livro.png"><span style="margin-left: -10px;font-weight: bold">RepoEdu</span>
             </div>
 
             <div class="area-links">
