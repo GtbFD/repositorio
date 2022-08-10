@@ -83,9 +83,7 @@
                                 $_SESSION['usuario'] = $resposta['usuario'];
                                 header('Location: dashboard.php');
                             }else{
-                                ?>
-                                    <b><center><br>Email e/ou senha incorretos!<center></b>
-                                <?php
+                                header('Location: resposta.php?codigo=erro&mensagem=Email e/ou senha inválidos.');
                             }
                         }
                     ?>

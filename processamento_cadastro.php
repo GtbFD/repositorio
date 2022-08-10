@@ -23,12 +23,12 @@ if (isset($_POST['cadastrar'])) {
 
     if (!$usuarioDAO->existeEmail($usuario)) {
         if ($usuarioDAO->inserir($usuario)) {
-            header('Location: index.php');
+            header('Location: resposta.php?codigo=sucesso&mensagem=Cadastro realizado com sucesso.');
         } else {
-            header('Location: cadastro.php');
+            header('Location: resposta.php?codigo=atencao&mensagem=Email já cadastrado, por favor tente novamente.');
         }
     }
     else{
-        header('Location: index.php');
+        header('Location: resposta.php?codigo=atencao&mensagem=Email já cadastrado, por favor tente novamente.');
     }
 }

@@ -45,7 +45,7 @@
                 <form action="processamento_cadastro.php" method="POST">
                     <center><input style="margin: 5px; border-radius: 5px; border: 1px solid #CCC" required name="nome" class="input-pesquisa" placeholder="Digite seu nome">
                     <input style="margin: 5px; border-radius: 5px; border: 1px solid #CCC" required name="sobrenome" class="input-pesquisa" placeholder="Digite seu sobrenome">
-                    <input style="margin: 5px; border-radius: 5px; border: 1px solid #CCC" required name="email" class="input-pesquisa" placeholder="Ex.: jose@gmail.com">
+                    <input style="margin: 5px; border-radius: 5px; border: 1px solid #CCC" type="email" required name="email" class="input-pesquisa" placeholder="Ex.: jose@gmail.com">
                     <input style="margin: 5px; border-radius: 5px; border: 1px solid #CCC" required name="senha" type="password" class="input-pesquisa" placeholder="Digite sua senha"><center>
                     <br><input name="cadastrar" required type="submit" value="Cadastrar" class="botao-pesquisa"><br>
                 <br>

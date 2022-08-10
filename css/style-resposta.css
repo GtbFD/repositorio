@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root
+{
+    --cor-background: #f0f2f5;
+    --cor-secundaria: #ffffff;
+    --cor-bordas: #f7f8f9;
+    --shadow: 2px 2px 5px #CCC;
+}
+
+html, body
+{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--cor-background);
+}
+
+.container
+{
+    display:grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+        ". . ."
+        ". aviso-principal ."
+        ". . .";
+}
+
+.aviso-principal
+{
+    justify-content: center;
+    grid-area: aviso-principal;
+    display: grid;
+    grid-template-columns: 2fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+        "imagem"
+        ".";
+    justify-content: center;
+    margin-top: -100px;
+}
+
+.imagem
+{
+    grid-area: imagem;
+}
+
+.imagem
+{
+    justify-content: center;
+    width: 300px;
+    height: 300;
+}
+
+.mensagem
+{
+    margin-top: 10px;
+    border: 1px solid #CCC;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.atencao
+{
+    border: 1px solid #FFD700;
+    background-color: #ffff008a;
+    color: black;
+}
+
+.sucesso
+{
+    border: 1px solid #00963290;
+    background-color: #009632;
+    color: white;
+}
+
+.erro
+{
+    border: 1px solid #b60000c9;
+    background-color: #ff0000;
+    color: white;
+}
